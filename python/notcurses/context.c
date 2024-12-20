@@ -211,6 +211,18 @@ build_NcInput(uint32_t const id, ncinput const *const ni)
         PyStructSequence_SET_ITEM(input, 5, PyLong_FromLong(ni->modifiers));
         PyStructSequence_SET_ITEM(input, 6, PyLong_FromLong(ni->ypx));
         PyStructSequence_SET_ITEM(input, 7, PyLong_FromLong(ni->xpx));
+
+        PyObject* eff_size = PyTuple_New(4);
+
+        for (Py_ssize_t pos=0; pos < 4; ++pos) {
+            if (ni->eff_text[pos]!=0) {
+                PyTuple_SetItem(eff_size, pos, PyLong_FromUnsignedLong(ni->eff_text[pos]));
+            } else {
+                PyTuple_SetItem(eff_size, pos, PyLong_FromUnsignedLong(0));
+            }
+        }
+
+        PyStructSequence_SET_ITEM(input, 8, eff_size);
         return input;
     }
 }

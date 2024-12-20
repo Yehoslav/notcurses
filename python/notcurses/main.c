@@ -50,6 +50,7 @@ static PyStructSequence_Field NcInput_fields[] = {
     {"modifiers", "bitmask over NCKEY_MOD_*"},
     {"ypx", "y pixel offset within cell, -1 for undefined"},
     {"xpx", "x pixel offset within cell, -1 for undefined"},
+    {"eff_text", NULL},
     {NULL, NULL},
 };
 

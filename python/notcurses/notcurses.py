@@ -311,6 +311,7 @@ class NcInput:
     modifiers: int
     xpx: int
     ypx: int
+    eff_text: tuple
 
 
 class Notcurses:
